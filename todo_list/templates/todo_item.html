@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+{%block title %}Todo Item| {{Name}}{% endblock %}
+{%block content%}
+	<div><b>{{Name}}</b>&nbsp;|&nbsp;<a href="/logout">Logout</a></div>
+	<h1>Todo Item</h1>
+	{{todo.title}} 
+	 
+	<h1> Update Item </h1>
+	<form  method="POST">
+		<input name="todo_item_name" ></input>
+		<input type="hidden" name="_method" value="put">
+		<input type="submit" value="Put">
+	{%csrf_token%}
+	</form>
+
+
+ 	<h1> Delete Item </h1>
+	<form  method="POST">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete">
+	{%csrf_token%}
+	</form>
+
+
+
+
+
+
+{% endblock %}

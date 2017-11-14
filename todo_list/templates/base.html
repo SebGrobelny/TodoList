@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Todo list | {% block title %}{% endblock %}</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+{% block script %}{% endblock %}
+</script>
+<style>
+.mid{
+display:block;
+min-height:400px;
+width:700px;
+}
+.small-div{
+width:40%;
+float:left;
+padding:10px;
+}
+input,label{
+display:block;
+margin:10px 0;
+}
+.left{
+border-right:1px solid #000;
+}
+table tr:first-child td{
+    font-weight:bold;
+    font-size:20px;
+    border-bottom:1px solid #000;
+    }
+.footer{
+    margin-top:50px;
+    border-top:1px solid #000;
+    }
+</style>
+{% block head %}{% endblock %}
+</head>
+<body>
+{% block header %}{% endblock %}
+{% block content %}{% endblock %}
+<div class="footer">
+{% block footer %}{% endblock %}
+</div>
+
+</body>
+
+</html>

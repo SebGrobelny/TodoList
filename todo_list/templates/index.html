@@ -1,0 +1,19 @@
+{%extends "base.html" %}
+{%block title %}Welcome{% endblock %}
+{%block content %}
+{{state}}
+
+<h1>Login</h1>
+<form method="post">
+	<label>Email</label>
+		<input type="text" name="email" required>
+	<label>Password</label>
+		<input type="password" name="password" required>
+		<input type="submit" value="Login">
+	{%csrf_token%}
+</form>
+
+<div style="clear:both;"></div>
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+{%block title %}List Item| {{Name}}{% endblock %}
+{%block content%}
+<div class="mid">
+	<div><b>{{Name}}</b>&nbsp;|&nbsp;<a href="/logout">Logout</a></div>
+	<h1>View List</h1>
+	
+	<strong>{{list.title}}</strong> <br>
+
+	{% for todo_obj in todo%}
+		{{todo_obj.title}}  <a href="/list/{{list.id}}/{{todo_obj.id}}">Update</a>&nbsp;|&nbsp;<a href="/list/{{list.id}}/{{todo_obj.id}}">Delete</a><br>
+	{%endfor%}
+
+		<form  method="get">
+			<input type="hidden" name="_method" value="get">
+			<input type="submit" value="Get">
+		{%csrf_token%}
+		</form>
+
+
+
+	<h1>Add To List</h1>
+		<form  method="post">
+			<label>Todo Item Name</label>
+			<input name="todo_item_name" required></input>
+			<input type="hidden" name="_method" value="post">
+			<input type="submit" value="Post">
+		{%csrf_token%}
+		</form>
+	<h1> Delete List </h1>
+		<form  method="post">
+		    {% csrf_token %}
+		    <input type="hidden" name="_method" value="delete">
+		    <input type="submit" value="Delete">
+		</form>
+	</form>
+
+</div>
+{% endblock %}
